@@ -12,15 +12,22 @@ Draw diagrams as **code** with D2 so the engine does the layout — never hand-a
 never hand-draw cyclic graphs. One `.d2` source renders to a crisp **SVG/PNG** (for docs/Wiki)
 and to **exact ASCII** (for terminals / `.md` code blocks).
 
-## Prerequisite
-D2 is installed at `C:\Program Files\D2\d2.exe` (winget `Terrastruct.D2`). In Bash use:
-`D2="/c/Program Files/D2/d2.exe"`. If missing: `winget install --id Terrastruct.D2 -e --silent`.
+## Prerequisite — D2 (one cross-platform binary: macOS / Windows / Linux)
+Claude Code plugins do NOT auto-install native tools, so D2 is a one-time manual install.
+First check PATH: `command -v d2`. If missing, install per OS:
+- **macOS:** `brew install d2`
+- **Windows:** `winget install --id Terrastruct.D2 -e` (or `scoop install d2`)
+- **Linux / other:** `curl -fsSL https://d2lang.com/install.sh | sh -s --`
+
+Then call it as `d2` (it's on PATH). On Windows, if the current shell hasn't refreshed PATH
+after install, the binary is at `C:\Program Files\D2\d2.exe` (`/c/Program Files/D2/d2.exe` in
+Git Bash) — set `D2="/c/Program Files/D2/d2.exe"` and use `"$D2"` for that session.
 
 ## Workflow
 1. Write the diagram as a `.d2` file (see Conventions).
-2. Render per target:
-   - **Image (docs):**  `"$D2" file.d2 file.svg`   (or `file.png`)
-   - **ASCII (terminal):** `"$D2" --ascii-mode extended file.d2 file.txt`  (`standard` = pure ASCII)
+2. Render per target (use `d2`, or the full-path fallback above on a stale Windows shell):
+   - **Image (docs):**  `d2 file.d2 file.svg`   (or `file.png`)
+   - **ASCII (terminal):** `d2 --ascii-mode extended file.d2 file.txt`  (`standard` = pure ASCII)
 3. Show the user: paste the `.txt` for terminal, send the `.svg`/`.png` as a file.
 4. **To embed ASCII in a Markdown doc, splice the EXACT rendered `.txt`** — do not retype it
    (see Anti-patterns). Use the helper:

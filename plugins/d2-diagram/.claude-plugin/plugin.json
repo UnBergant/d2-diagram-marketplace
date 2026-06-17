@@ -1,5 +1,5 @@
 {
   "name": "d2-diagram",
   "description": "Generate clean, auto-laid-out diagrams with D2 (diagram-as-code): renders to SVG/PNG for docs AND exact ASCII for terminals. Replaces hand-drawn ASCII.",
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
