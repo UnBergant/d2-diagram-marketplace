@@ -1,0 +1,13 @@
+{
+  "name": "bergant-skills",
+  "owner": {
+    "name": "Igor Bergant"
+  },
+  "plugins": [
+    {
+      "name": "d2-diagram",
+      "source": "./plugins/d2-diagram",
+      "description": "Generate clean diagrams with D2 (diagram-as-code) — SVG/PNG for docs and exact ASCII for terminals."
+    }
+  ]
+}
